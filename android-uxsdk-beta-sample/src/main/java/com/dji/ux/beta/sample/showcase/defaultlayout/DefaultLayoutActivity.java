@@ -440,7 +440,7 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         //Step 1: takeoff from the ground
         elements.add(new TakeOffAction());
 
-        //Step 2: Go 1 meters from home point
+        //Step 2: Fly up 1 meters from base point (drone position when start app)
         elements.add(new GoToAction( 1));
 
         //Step 3: reset the gimbal pitch to below of drone in 2 seconds
@@ -458,8 +458,8 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         gimbalAction_reset.setCompletionTime(5);
         elements.add(gimbalAction_reset);
 
-        //Step 6: fly forward 2 meters
-        elements.add(new GoToAction(new LocationCoordinate2D(baseLatitude + 2 * ONE_METER_OFFSET, baseLongitude), 1));
+        //Step 6: fly forward 5 meters from base point
+        elements.add(new GoToAction(new LocationCoordinate2D(baseLatitude + 5 * ONE_METER_OFFSET, baseLongitude), 1));
 
         //Step 7: Set the gimbal yaw to right of drone in 2 seconds
         Attitude attitude_right = new Attitude(Rotation.NO_ROTATION, Rotation.NO_ROTATION, 90);

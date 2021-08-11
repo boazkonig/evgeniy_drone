@@ -179,7 +179,9 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         params.topMargin = (deviceHeight / 10) + (int) DisplayUtil.dipToPx(this, 10);
         userAccountLoginWidget.setLayoutParams(params);
 
-        initTimeline();
+
+        View autoButton = findViewById(R.id.auto);
+        autoButton.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -290,6 +292,8 @@ public class DefaultLayoutActivity extends AppCompatActivity {
      */
     @OnClick(R.id.auto)
     public void onAUTOClick() {
+        Toast.makeText(this, "Ready for automatic process...", Toast.LENGTH_SHORT).show();
+        initTimeline();
         Toast.makeText(this, "Starting auto drone fly...", Toast.LENGTH_SHORT).show();
         MissionControl.getInstance().startTimeline();
     }
@@ -485,9 +489,6 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         }
 
         missionControl.scheduleElements(elements);
-
-        View autoButton = findViewById(R.id.auto);
-        autoButton.setVisibility(View.VISIBLE);
     }
 
 }

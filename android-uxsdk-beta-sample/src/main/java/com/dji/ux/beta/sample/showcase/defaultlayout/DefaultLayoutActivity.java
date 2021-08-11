@@ -440,46 +440,43 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         //Step 1: takeoff from the ground
         elements.add(new TakeOffAction());
 
-        //Step 2: Fly up 1 meters from base point (drone position when start app)
-        elements.add(new GoToAction( 1));
-
-        //Step 3: reset the gimbal pitch to below of drone in 2 seconds
+        //Step 2: reset the gimbal pitch to below of drone in 2 seconds
         Attitude attitude = new Attitude(-90, Rotation.NO_ROTATION, Rotation.NO_ROTATION);
         GimbalAttitudeAction gimbalAction = new GimbalAttitudeAction(attitude);
         gimbalAction.setCompletionTime(2);
         elements.add(gimbalAction);
 
-        //Step 4: shoot a single photo
+        //Step 3: shoot a single photo
         elements.add(ShootPhotoAction.newShootSinglePhotoAction());
 
-        //Step 5: reset the gimbal pitch with 5 seconds delay
+        //Step 4: reset the gimbal pitch with 5 seconds delay
         Attitude attitude_reset = new Attitude(0, Rotation.NO_ROTATION, Rotation.NO_ROTATION);
         GimbalAttitudeAction gimbalAction_reset = new GimbalAttitudeAction(attitude_reset);
         gimbalAction_reset.setCompletionTime(5);
         elements.add(gimbalAction_reset);
 
-        //Step 6: fly forward 5 meters from base point
-        elements.add(new GoToAction(new LocationCoordinate2D(baseLatitude + 5 * ONE_METER_OFFSET, baseLongitude), 1));
+        //Step 5: fly forward 2 meters from base point
+        elements.add(new GoToAction(new LocationCoordinate2D(baseLatitude + 2 * ONE_METER_OFFSET, baseLongitude), 1));
 
-        //Step 7: Set the gimbal yaw to right of drone in 2 seconds
+        //Step 6: Set the gimbal yaw to right of drone in 2 seconds
         Attitude attitude_right = new Attitude(Rotation.NO_ROTATION, Rotation.NO_ROTATION, 90);
         GimbalAttitudeAction gimbalAction_right = new GimbalAttitudeAction(attitude_right);
         gimbalAction.setCompletionTime(2);
         elements.add(gimbalAction_right);
 
-        //Step 8: shoot a single photo
+        //Step 7: shoot a single photo
         elements.add(ShootPhotoAction.newShootSinglePhotoAction());
 
-        //Step 9: Set the gimbal yaw to left of drone in 2 seconds
+        //Step 8: Set the gimbal yaw to left of drone in 2 seconds
         Attitude attitude_left = new Attitude(Rotation.NO_ROTATION, Rotation.NO_ROTATION, -90);
         GimbalAttitudeAction gimbalAction_left = new GimbalAttitudeAction(attitude_left);
         gimbalAction.setCompletionTime(2);
         elements.add(gimbalAction_left);
 
-        //Step 10: shoot a single photo
+        //Step 9: shoot a single photo
         elements.add(ShootPhotoAction.newShootSinglePhotoAction());
 
-        //Step 11: Land Drone
+        //Step 10: Land Drone
         elements.add(new LandAction());
 
         if (missionControl.scheduledCount() > 0) {

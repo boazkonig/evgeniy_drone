@@ -4,25 +4,23 @@ Updated official DJI Android UX SDK for some automatic timeline feature
 
 Step 1: takeoff from the ground
 
-Step 2: Go 1 meters from base point (drone position when start app)
+Step 2: reset the gimbal pitch to below of drone in 2 seconds
 
-Step 3: reset the gimbal pitch to below of drone in 2 seconds
+Step 3: shoot a single photo
 
-Step 4: shoot a single photo
+Step 4: reset the gimbal pitch with 5 seconds delay
 
-Step 5: reset the gimbal pitch with 5 seconds delay
+Step 5: fly forward 2 meters from base point
 
-Step 6: fly forward 5 meters from base point
+Step 6: Set the gimbal yaw to right of drone in 2 seconds
 
-Step 7: Set the gimbal yaw to right of drone in 2 seconds
+Step 7: shoot a single photo
 
-Step 8: shoot a single photo
+Step 8: Set the gimbal yaw to left of drone in 2 seconds
 
-Step 9: Set the gimbal yaw to left of drone in 2 seconds
+Step 9: shoot a single photo
 
-Step 10: shoot a single photo
-
-Step 11: Land Drone
+Step 10: Land Drone
 
 ## License
 
